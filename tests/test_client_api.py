@@ -3,7 +3,7 @@ Pytest tests for client API endpoints.
 """
 import pytest
 from fastapi.testclient import TestClient
-from src.intranet.app import app
+from appointment_app.app import app
 
 client = TestClient(app)
 

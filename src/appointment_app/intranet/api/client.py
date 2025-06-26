@@ -2,7 +2,7 @@
 API endpoints for client management.
 """
 from fastapi import APIRouter, HTTPException
-from src.intranet.models.client import Client
+from appointment_app.intranet.models.client import Client
 
 router = APIRouter(prefix="/clients", tags=["clients"])
 

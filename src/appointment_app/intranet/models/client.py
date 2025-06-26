@@ -11,7 +11,7 @@ class Client(BaseModel):
     email: EmailStr
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "client_id": "12345",
                 "first_name": "John",

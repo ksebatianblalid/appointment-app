@@ -3,9 +3,11 @@ NiceGUI screen for managing client information using FastAPI endpoints.
 """
 from nicegui import ui
 import httpx
-from src.intranet.conf.settings import config
+from appointment_app.intranet.conf.settings import config
 
 API_URL = config.fastapi_url
+
+client_fields = {}
 
 def submit_client(e):
     payload = {
@@ -30,10 +32,12 @@ def submit_client(e):
 
 with ui.card():
     ui.label('Client Information').classes('text-h5')
-    with ui.form(on_submit=submit_client):
-        ui.input('Client ID', name='client_id', required=True)
-        ui.input('First Name', name='first_name', required=True)
-        ui.input('Last Name', name='last_name', required=True)
-        ui.input('Phone', name='phone', required=True)
-        ui.input('Email', name='email', required=True)
-        ui.button('Save', type='submit')
+    client_fields['client_id'] = ui.input('Client ID')
+    client_fields['first_name'] = ui.input('First Name')
+    client_fields['last_name'] = ui.input('Last Name')
+    client_fields['phone'] = ui.input('Phone')
+    client_fields['email'] = ui.input('Email')
+    ui.button('Save', on_click=submit_client)
+
+if __name__ in {"__main__", "__mp_main__"}:
+    ui.run(port=8080)

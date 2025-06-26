@@ -1,28 +1,33 @@
 [project]
 name = "appointment-app"
 version = "0.1.0"
-description = "Appointment app with FastAPI, NiceGUI, Firestore, and Cloud Run."
+description = "Python Appointment app implemented with FastAPI and NiceGUI, using GCP servies"
 requires-python = ">=3.12"
 authors = [
   {name = "Kristian", email = "kristian.sebastian@gmail.com"}
 ]
 license = "MIT"
-
 dependencies = [
-    "fastapi==0.109.1",
-    "uvicorn==0.29.0",
-    "nicegui==1.4.37",
+    "fastapi==0.115.14",
+    "pydantic[email]",
+    "uvicorn==0.34.3",
+    "nicegui==2.20.0",
     "google-cloud-firestore==2.16.0",
     "google-cloud-storage==2.16.0",
-    "python-box==7.1.1",
-    "python-dotenv==1.0.1",
+    "python-box==7.3.2",
+    "python-dotenv==1.1.1",
 ]
 
 [project.optional-dependencies]
 testing = [
-    "pytest==8.2.0"
+    "pytest==8.4.1",
+    "pytest-cov==6.2.1"
 ]
 
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["appointment_app"]
+
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

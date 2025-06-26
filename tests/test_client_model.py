@@ -3,7 +3,7 @@ Pytest tests for the Client Pydantic model.
 """
 import pytest
 from pydantic import ValidationError
-from src.intranet.models.client import Client
+from appointment_app.intranet.models.client import Client
 
 def test_client_model_valid():
     c = Client(
